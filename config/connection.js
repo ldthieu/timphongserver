@@ -13,7 +13,8 @@ const sequelize = new Sequelize(db.database, db.username, db.password, {
         min: pool.min,
         acquire: pool.acquire,
         idle: pool.idle
-    }
+    },
+    ssl: true
 });
 
 module.exports = { sequelize, Sequelize };
