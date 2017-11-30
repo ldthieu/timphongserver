@@ -13,5 +13,7 @@ module.exports = {
         min: 0,
         acquire: 30000,
         idle: 10000
-    }
+    },
+    secret_key : "timphongtro",
+    port_api: process.env.PORT || 5000
 }
