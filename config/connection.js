@@ -14,7 +14,9 @@ const sequelize = new Sequelize(db.database, db.username, db.password, {
         acquire: pool.acquire,
         idle: pool.idle
     },
-    ssl: true
+    dialectOptions: {
+        ssl: true
+    }
 });
 
 module.exports = { sequelize, Sequelize };
