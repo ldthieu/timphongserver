@@ -1,6 +1,6 @@
 var { sequelize, Sequelize } = require('../config/connection');
 
-const User = sequelize.define('user', {
+const User = sequelize.define('users', {
     id: {
         type: Sequelize.INTEGER,
         notNull: true,
@@ -19,14 +19,35 @@ const User = sequelize.define('user', {
         notNull: true,
         field: 'password'
     },
-    lastname: {
-        type: Sequelize.STRING,
-        field: 'lastname'
+    user_type: {
+        type: Sequelize.INTEGER,
+        notNull: true,
+        field: 'user_type'
     },
-    firstname: {
+    last_name: {
+        type: Sequelize.STRING,
+        field: 'last_name'
+    },
+    first_name: {
         type: Sequelize.STRING,
         notNull: true,
-        field: 'firstname'
+        field: 'first_name'
+    },
+    phone: {
+        type: Sequelize.STRING,
+        field: 'phone'
+    },
+    email: {
+        type: Sequelize.STRING,
+        field: 'email'
+    },
+    avatar: {
+        type: Sequelize.STRING,
+        field: 'avatar'
+    },
+    active: {
+        type: Sequelize.BOOLEAN,
+        field: 'active'
     }
 });
 
