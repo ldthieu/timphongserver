@@ -3,10 +3,10 @@ var User = require('../models/user-model');
 var utils = require('../utils/utils');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     User.findOne({
         where: {
-            username: req.query.username,
+            username: req.body.username,
         }
     }).then(rs => {
         if (!rs) {
