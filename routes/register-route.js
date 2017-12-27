@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
         }
     }).then(rs => {
         if (!rs) {
+            console.log({...body})
         }
     });
 });

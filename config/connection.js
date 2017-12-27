@@ -15,7 +15,7 @@ const sequelize = new Sequelize(db.database, db.username, db.password, {
         idle: pool.idle
     },
     dialectOptions: {
-        ssl: true
+        ssl: false
     }
 });
 

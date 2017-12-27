@@ -11,7 +11,8 @@ router.post('/', (req, res) => {
     }).then(rs => {
         if (!rs) {
             res.sendStatus(204);
-        } else if (utils.deCrypt(req.body.password) != utils.deCrypt(rs.password)) {
+        // } else if (utils.deCrypt(req.body.password) != utils.deCrypt(rs.password)) {
+        } else if (req.body.password != utils.deCrypt(rs.password)) {
             res.sendStatus(400);
         } else {
             delete rs.dataValues.password;

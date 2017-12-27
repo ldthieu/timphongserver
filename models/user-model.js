@@ -1,6 +1,6 @@
 var { sequelize, Sequelize } = require('../config/connection');
-
-const User = sequelize.define('users', {
+const UserType = require('./user-type-model');
+const User = sequelize.define('user', {
     id: {
         type: Sequelize.INTEGER,
         notNull: true,
@@ -19,7 +19,7 @@ const User = sequelize.define('users', {
         notNull: true,
         field: 'password'
     },
-    user_type: {
+    user_type_id: {
         type: Sequelize.INTEGER,
         notNull: true,
         field: 'user_type'
@@ -50,5 +50,8 @@ const User = sequelize.define('users', {
         field: 'active'
     }
 });
+
+UserType.hasMany(User, { foreignKey: 'user_type_id', sourceKey: 'id' });
+User.belongsTo(UserType, { foreignKey: 'user_type_id', targetKey: 'id' });
 
 module.exports = User;
