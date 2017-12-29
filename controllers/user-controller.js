@@ -31,7 +31,7 @@ function register(req, res) {
         if (!rs) {
             User.create({
                 username: req.body.username,
-                password: enCrypt(req.body.password),
+                password: req.body.password,
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 email: req.body.email,

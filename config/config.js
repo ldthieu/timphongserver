@@ -1,10 +1,10 @@
 
 module.exports = {
     db: {
-        database: 'deaqnunoovochd',
-        username: 'tempvzmllinfeh',
-        password: '81eb9d7960cdf723170baa65ef907358bf0cb015d876ed32f1a7f59a5b0c8a7e',
-        host: 'ec2-23-21-155-53.compute-1.amazonaws.com',
+        database: 'd6n82pvue4qnvs',
+        username: 'yvxxfjnrnirlbj',
+        password: '963132ee9ea9d0a9ad050416ac843b50b130eeefe607870f4f243d284c2968ef',
+        host: 'ec2-23-21-164-107.compute-1.amazonaws.com',
         dialect: 'postgres',
         port: 5432
     },

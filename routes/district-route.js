@@ -7,5 +7,8 @@ router.route('/')
     .get(
         districtController.getDistrict
     )
+    .post(
+        districtController.createDistrict
+    )
 
 module.exports = router;

@@ -1,5 +1,4 @@
 var { sequelize, Sequelize } = require('../config/connection');
-var { enCrypt, deCrypt } = require('../utils/utils');
 var City = require('../models/city-model');
 
 function getCity(req, res) {
@@ -20,4 +19,23 @@ function getCity(req, res) {
         })
 }
 
-module.exports = { getCity };
+function createCity(req, res) {
+    City.create({
+        name: req.body.name
+    })
+        .then(post => {
+            res.status(200).json({
+                success: true,
+                message: "Created city successfully!"
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                success: false,
+                message: "Failed to create city!"
+            });
+        });
+}
+
+module.exports = { getCity, createCity };

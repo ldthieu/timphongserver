@@ -1,48 +1,41 @@
 var { sequelize, Sequelize } = require('../config/connection');
-var { enCrypt, deCrypt } = require('../utils/utils');
-var City = require('../models/city-model');
-var District = require('../models/district-model');
+var UserType = require('../models/user-type-model');
 
-function getDistrict(req, res) {
-    District.findAll({
-        include: {
-            model: City
-        }
-    })
+function getUserType(req, res) {
+    UserType.findAll()
         .then(rs => {
             if (rs.length > 0) {
                 res.status(200).json({
                     success: true,
-                    message: "get district success!",
+                    message: "get user type success!",
                     data: rs
                 });
             } else {
                 res.status(204).json({
                     success: false,
-                    message: "No district found!"
+                    message: "No user type found!"
                 });
             }
         })
 }
 
-function createDistrict(req, res) {
-    District.create({
-        name: req.body.name,
-        city_id: req.body.city_id
+function createCity(req, res) {
+    City.create({
+        name: req.body.name
     })
         .then(post => {
             res.status(200).json({
                 success: true,
-                message: "Created district successfully!"
+                message: "Created city successfully!"
             });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({
                 success: false,
-                message: "Failed to create district!"
+                message: "Failed to create city!"
             });
         });
 }
 
-module.exports = { getDistrict, createDistrict };
+module.exports = { getCity, createCity };

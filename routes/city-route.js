@@ -7,5 +7,8 @@ router.route('/')
     .get(
         cityController.getCity
     )
+    .post(
+        cityController.createCity
+    )
 
 module.exports = router;
