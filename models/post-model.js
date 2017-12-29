@@ -59,12 +59,12 @@ const Post = sequelize.define('post', {
         field: 'update_at'
     },
     longitude: {
-        type: Sequelize.STRING,
+        type: Sequelize.NUMERIC,
         notNull: true,
         field: 'longitude'
     },
     latitude: {
-        type: Sequelize.STRING,
+        type: Sequelize.NUMERIC,
         notNull: true,
         field: 'latitude'
     },

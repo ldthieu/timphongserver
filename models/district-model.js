@@ -24,4 +24,4 @@ const District = sequelize.define('district', {
 City.hasMany(District, { foreignKey: 'city_id', sourceKey: 'id' });
 District.belongsTo(City, { foreignKey: 'city_id', targetKey: 'id' });
 
-module.exports = City;
+module.exports = District;

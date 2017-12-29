@@ -1,13 +1,17 @@
 var express = require('express');
 var User = require('../models/user-model');
 var UserType = require('../models/user-type-model');
-var loginRoute = require('./login-route');
-var registerRoute = require('../routes/register-route');
+var userRoute = require('./user-route');
+var postRoute = require('./post-route');
+var cityRoute = require('./city-route');
+var districtRoute = require('./district-route');
 
 const router = express.Router();
 
-router.use('/login', loginRoute);
-router.use('/register', registerRoute);
+router.use('/user', userRoute);
+router.use('/post', postRoute);
+router.use('/city', cityRoute);
+router.use('/district', districtRoute);
 
 router.route('/').get(
     (req, res) => {
@@ -16,7 +20,7 @@ router.route('/').get(
                 model: UserType
             }]
         }).then(rs => {
-            res.json(rs);
+            res.json(Date.now() + 7 * 24 * 3600 * 1000);
         })
     }
 )
