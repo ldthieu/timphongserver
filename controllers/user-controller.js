@@ -10,14 +10,24 @@ function login(req, res) {
         }
     }).then(rs => {
         if (!rs) {
-            res.sendStatus(204);
+            res.sendStatus(204).json({
+                success: false,
+                message: "not found username!"
+            });
             // } else if (utils.deCrypt(req.body.password) != utils.deCrypt(rs.password)) {
         } else if (req.body.password != deCrypt(rs.password)) {
-            res.sendStatus(400);
+            res.sendStatus(400).json({
+                success: false,
+                message: "password wrong!"
+            });
         } else {
             delete rs.dataValues.password;
             rs.dataValues["token"] = "";
-            res.status(200).json(rs);
+            res.status(200).json({
+                success: true,
+                message: "login success!",
+                data: rs
+            });
         }
     });
 }
