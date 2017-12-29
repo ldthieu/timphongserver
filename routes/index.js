@@ -15,13 +15,7 @@ router.use('/district', districtRoute);
 
 router.route('/').get(
     (req, res) => {
-        User.findAll({
-            include: [{
-                model: UserType
-            }]
-        }).then(rs => {
-            res.json(Date.now() + 7 * 24 * 3600 * 1000);
-        })
+        res.json({message: "you are welcome!"})
     }
 )
 
