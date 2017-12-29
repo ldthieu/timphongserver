@@ -19,23 +19,23 @@ function getUserType(req, res) {
         })
 }
 
-function createCity(req, res) {
-    City.create({
+function createUserType(req, res) {
+    UserType.create({
         name: req.body.name
     })
         .then(post => {
             res.status(200).json({
                 success: true,
-                message: "Created city successfully!"
+                message: "Created user type successfully!"
             });
         })
         .catch(err => {
             console.log(err);
             res.status(500).json({
                 success: false,
-                message: "Failed to create city!"
+                message: "Failed to create user type!"
             });
         });
 }
 
-module.exports = { getCity, createCity };
+module.exports = { getUserType, createUserType };
