@@ -39,7 +39,7 @@ const Post = sequelize.define('post', {
         field: 'address'
     },
     acreage: {
-        type: Sequelize.STRING,
+        type: Sequelize.NUMERIC,
         notNull: true,
         field: 'acreage'
     },

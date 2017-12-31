@@ -14,8 +14,8 @@ function login(req, res) {
                 success: false,
                 message: "not found username!"
             });
-            // } else if (utils.deCrypt(req.body.password) != utils.deCrypt(rs.password)) {
-        } else if (req.body.password != deCrypt(rs.password)) {
+        } else if (deCrypt(req.body.password) != deCrypt(rs.password)) {
+            // } else if (req.body.password != deCrypt(rs.password)) {
             res.sendStatus(400).json({
                 success: false,
                 message: "password wrong!"
