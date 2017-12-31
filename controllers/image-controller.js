@@ -3,10 +3,12 @@ var Image = require('../models/image-model');
 var Post = require('../models/post-model');
 
 function getImageByPostID(req, res) {
+    let reqParams = {};
+    if (req.query.post_id) {
+        reqParams.post_id = req.query.post_id;
+    }
     Image.findAll({
-        where: {
-            post_id: req.query.post_id
-        },
+        where: reqParams,
         include: {
             model: Post
         }
